@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -412,6 +413,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83badb83feaf48aa99c834703a0b7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &680141328
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,11 +906,26 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 247440745147989313, guid: 8ee8a135f2b3a6044a9dafe00df05727,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15a5d49e4ac10ea4589a0da363503fe7, type: 2}
     - target: {fileID: 247440745147989316, guid: 8ee8a135f2b3a6044a9dafe00df05727,
         type: 3}
       propertyPath: unitInfo
       value: This is a square
       objectReference: {fileID: 0}
+    - target: {fileID: 247440745147989316, guid: 8ee8a135f2b3a6044a9dafe00df05727,
+        type: 3}
+      propertyPath: unitBaseMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 15a5d49e4ac10ea4589a0da363503fe7, type: 2}
+    - target: {fileID: 247440745147989316, guid: 8ee8a135f2b3a6044a9dafe00df05727,
+        type: 3}
+      propertyPath: unitSelectedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f89e0486f246904aa971fc7cae2ce64, type: 2}
     - target: {fileID: 247440745147989318, guid: 8ee8a135f2b3a6044a9dafe00df05727,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1092,11 +1120,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 247440745147989313, guid: 8ee8a135f2b3a6044a9dafe00df05727,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15a5d49e4ac10ea4589a0da363503fe7, type: 2}
     - target: {fileID: 247440745147989316, guid: 8ee8a135f2b3a6044a9dafe00df05727,
         type: 3}
       propertyPath: unitInfo
       value: This is a circle
       objectReference: {fileID: 0}
+    - target: {fileID: 247440745147989316, guid: 8ee8a135f2b3a6044a9dafe00df05727,
+        type: 3}
+      propertyPath: unitBaseMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 15a5d49e4ac10ea4589a0da363503fe7, type: 2}
+    - target: {fileID: 247440745147989316, guid: 8ee8a135f2b3a6044a9dafe00df05727,
+        type: 3}
+      propertyPath: unitSelectedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f89e0486f246904aa971fc7cae2ce64, type: 2}
     - target: {fileID: 247440745147989318, guid: 8ee8a135f2b3a6044a9dafe00df05727,
         type: 3}
       propertyPath: m_LocalPosition.x

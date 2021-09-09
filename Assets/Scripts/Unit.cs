@@ -7,6 +7,9 @@ public class Unit : MonoBehaviour
 {
     public string unitInfo;
 
+    public Material unitBaseMaterial;
+    public Material unitSelectedMaterial;
+
     private Vector3 mouseOffset;
 
     private bool leftWasDown = false;
@@ -47,8 +50,20 @@ public class Unit : MonoBehaviour
 
     void LeftClick()
     {
+        SelectUnit();
         ShowUnitInfo();
     }
+
+    void SelectUnit()
+    {
+        GetComponent<SpriteRenderer>().material = unitSelectedMaterial;
+    }
+
+    void DeselectUnit()
+    {
+        GetComponent<SpriteRenderer>().material = unitBaseMaterial;
+    }
+
 
     void ShowUnitInfo()
     {
