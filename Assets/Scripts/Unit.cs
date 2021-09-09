@@ -50,16 +50,23 @@ public class Unit : MonoBehaviour
 
     void LeftClick()
     {
-        SelectUnit();
+        Select();
         ShowUnitInfo();
     }
 
-    void SelectUnit()
+    public void Select()
     {
+        if (Manager.manager.currentlySelectedUnit)
+        {
+            Manager.manager.DeselectUnit();
+        }
+
+        Manager.manager.currentlySelectedUnit = this;
+
         GetComponent<SpriteRenderer>().material = unitSelectedMaterial;
     }
 
-    void DeselectUnit()
+    public void Deselect()
     {
         GetComponent<SpriteRenderer>().material = unitBaseMaterial;
     }

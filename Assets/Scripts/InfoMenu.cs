@@ -13,7 +13,7 @@ public class InfoMenu : MonoBehaviour
 
     }
 
-    void HideMenu()
+    public void HideMenu()
     {
         transform.GetComponent<SpriteRenderer>().enabled = false;
         transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;

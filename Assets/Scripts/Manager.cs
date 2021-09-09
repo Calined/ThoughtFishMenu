@@ -8,6 +8,8 @@ public class Manager : MonoBehaviour
 
     public InfoMenu infoMenu;
 
+    public Unit currentlySelectedUnit;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,5 +21,10 @@ public class Manager : MonoBehaviour
 
     }
 
+    public void DeselectUnit()
+    {
+        currentlySelectedUnit.Deselect();
+        infoMenu.HideMenu();
+    }
 
 }

@@ -28,26 +28,46 @@ public class TouchToRay : MonoBehaviour
 
         m_Raycaster.Raycast(m_PointerEventData, results);
 
-        foreach (RaycastResult result in results)
+
+
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(1))
         {
-            if (Input.GetMouseButtonDown(0))
+
+            bool unitWasSelected = false;
+
+            foreach (RaycastResult result in results)
             {
-                result.gameObject.GetComponent<Unit>().LeftDown();
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                result.gameObject.GetComponent<Unit>().LeftUp();
-            }
-            if (Input.GetMouseButtonDown(1))
-            {
-                result.gameObject.GetComponent<Unit>().RightDown();
-            }
-            if (Input.GetMouseButtonUp(1))
-            {
-                result.gameObject.GetComponent<Unit>().RightUp();
+                if (Input.GetMouseButtonDown(0))
+                {
+                    result.gameObject.GetComponent<Unit>().LeftDown();
+                }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    if (result.gameObject.GetComponent<Unit>())
+                    { unitWasSelected = true; }
+
+                    result.gameObject.GetComponent<Unit>().LeftUp();
+                }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    result.gameObject.GetComponent<Unit>().RightDown();
+                }
+                if (Input.GetMouseButtonUp(1))
+                {
+                    result.gameObject.GetComponent<Unit>().RightUp();
+                }
+
             }
 
+            if (!unitWasSelected && Manager.manager.currentlySelectedUnit)
+            {
+                Manager.manager.DeselectUnit();
+            }
+
+
         }
+
+
     }
 
 
