@@ -39,22 +39,22 @@ public class TouchToRay : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    result.gameObject.GetComponent<Unit>().LeftDown();
+                    result.gameObject.GetComponent<Button>().LeftDown();
                 }
                 if (Input.GetMouseButtonUp(0))
                 {
                     if (result.gameObject.GetComponent<Unit>())
                     { unitWasSelected = true; }
 
-                    result.gameObject.GetComponent<Unit>().LeftUp();
+                    result.gameObject.GetComponent<Button>().LeftUp();
                 }
                 if (Input.GetMouseButtonDown(1))
                 {
-                    result.gameObject.GetComponent<Unit>().RightDown();
+                    result.gameObject.GetComponent<Button>().RightDown();
                 }
                 if (Input.GetMouseButtonUp(1))
                 {
-                    result.gameObject.GetComponent<Unit>().RightUp();
+                    result.gameObject.GetComponent<Button>().RightUp();
                 }
 
             }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 247440745147989318}
   - component: {fileID: 247440745147989313}
   - component: {fileID: 247440745147989316}
+  - component: {fileID: 8238706200001655975}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -94,3 +95,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f26ee4dd0f3d7e44b7d5360b493011b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitInfo: 
+  unitBaseMaterial: {fileID: 0}
+  unitSelectedMaterial: {fileID: 0}
+--- !u!114 &8238706200001655975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247440745147989312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0c93ddb47ae9049a4858e7fdac6722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLeftClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 247440745147989316}
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 247440745147989316}
+        m_MethodName: ShowUnitInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRightClick:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHover:
+    m_PersistentCalls:
+      m_Calls: []
+  dragable: 1
