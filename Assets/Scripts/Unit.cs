@@ -93,6 +93,7 @@ public class Unit : MonoBehaviour
 
         if (Vector2.Distance(dragStartPos, dragPos) > 0.2f)
         {
+            Manager.manager.toolTip.Hide();
 
             leftWasDown = false;
             rightWasDown = false;
