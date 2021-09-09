@@ -16,6 +16,11 @@ public class RecordingEvent
         myAction = action;
     }
 
+    public override string ToString()
+    {
+        return "" + timeStamp + " " + target + " " + myAction;
+    }
+
 }
 
 public class Recording
@@ -38,11 +43,18 @@ public class Recording
     {
         if (recordingEvents.Count > 0)
         {
-            return "" + recordingEvents.Count;
+            string recordingString = "";
+
+            foreach (RecordingEvent recordingEvent in recordingEvents)
+            {
+                recordingString += " | " + recordingEvent;
+            }
+
+            return recordingString;
         }
         else
         {
-            return "empty";
+            return "recording is empty";
         }
     }
 
