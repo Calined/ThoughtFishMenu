@@ -105,8 +105,15 @@ public class Unit : MonoBehaviour
 
     void OnMouseExit()
     {
+        Manager.manager.toolTip.Hide();
+
         leftWasDown = false;
         rightWasDown = false;
+    }
+
+    void OnMouseEnter()
+    {
+        Manager.manager.toolTip.ShowUnitInfo(unitInfo, transform.position);
     }
 
 }

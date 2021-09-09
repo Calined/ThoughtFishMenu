@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
     public static Manager manager;
 
     public InfoMenu infoMenu;
+    public ToolTip toolTip;
 
     public Unit currentlySelectedUnit;
 
