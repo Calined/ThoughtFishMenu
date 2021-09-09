@@ -1,24 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class RecordingEvent
 {
-    float timeStamp;
+    float myTimeStamp;
     Button target;
     string myAction;
 
-    public RecordingEvent(Button button, string action)
+    public RecordingEvent(float timeStamp, Button button, string action)
     {
-        timeStamp = Time.time;
+        myTimeStamp = timeStamp;
         target = button;
         myAction = action;
     }
 
     public override string ToString()
     {
-        return "" + timeStamp + " " + target + " " + myAction;
+        return "" + myTimeStamp + " " + target + " " + myAction;
     }
 
 }
@@ -27,7 +26,8 @@ public class Recording
 {
     List<RecordingEvent> recordingEvents = new List<RecordingEvent>();
 
-    float startTime;
+    public float startTime;
+    public float length;
 
     public Recording()
     {
@@ -36,7 +36,8 @@ public class Recording
 
     public void AddEvent(Button button, string action)
     {
-        recordingEvents.Add(new RecordingEvent(button, action));
+        recordingEvents.Add(new RecordingEvent(Time.time - startTime, button, action));
+        length = Time.time - startTime;
     }
 
     public override string ToString()
@@ -69,6 +70,20 @@ public class ReplayMenu : MonoBehaviour
 
     Recording currentRecording;
 
+    public void PlayRecording(Recording recording)
+    {
+        StartCoroutine(PlayStep(recording));
+    }
+
+    private IEnumerator PlayStep(Recording recording)
+    {
+        while (Time.time - recording.startTime < recording.length)
+        {
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
     public void StartButton()
     {
         currentRecording = new Recording();
@@ -91,6 +106,8 @@ public class ReplayMenu : MonoBehaviour
 
     public void PlayButton()
     {
+        PlayRecording(currentRecording);
+
         startButton.gameObject.SetActive(false);
         stopButton.gameObject.SetActive(true);
         playButton.gameObject.SetActive(false);
