@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Unit : MonoBehaviour
 {
+    public string unitInfo;
 
     private Vector3 mouseOffset;
 
@@ -43,7 +44,12 @@ public class Unit : MonoBehaviour
 
     void LeftClick()
     {
-        Debug.Log("LeftClick");
+        ShowUnitInfo();
+    }
+
+    void ShowUnitInfo()
+    {
+        Manager.manager.infoMenu.ShowUnitInfo(unitInfo);
     }
 
     void RightClick()
