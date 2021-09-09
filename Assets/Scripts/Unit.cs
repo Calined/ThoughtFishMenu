@@ -12,10 +12,13 @@ public class Unit : MonoBehaviour
     private bool leftWasDown = false;
     private bool rightWasDown = false;
 
+    private Vector2 dragStartPos;
+
     public void LeftDown()
     {
         leftWasDown = true;
         mouseOffset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        dragStartPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
     }
 
     public void LeftUp()
@@ -64,9 +67,18 @@ public class Unit : MonoBehaviour
 
     void OnMouseDrag()
     {
-        Vector3 curScreenPoint = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + mouseOffset;
-        transform.position = curPosition;
+        Vector2 dragPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+
+        if (Vector2.Distance(dragStartPos, dragPos) > 0.2f)
+        {
+
+            leftWasDown = false;
+            rightWasDown = false;
+
+            Vector3 curScreenPoint = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + mouseOffset;
+            transform.position = curPosition;
+        }
     }
 
     void OnMouseExit()
