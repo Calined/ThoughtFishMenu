@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour
 
     public InfoMenu infoMenu;
     public ToolTip toolTip;
+    public ReplayMenu replayMenu;
 
     public Unit currentlySelectedUnit;
 

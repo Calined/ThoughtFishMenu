@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Reflection;
 
 public class Button : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class Button : MonoBehaviour
 
     public void LeftUp()
     {
+        Manager.manager.replayMenu.TrackEvent(this, MethodBase.GetCurrentMethod().Name);
         if (leftWasDown)
         {
             OnLeftClick.Invoke();
